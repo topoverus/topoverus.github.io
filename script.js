@@ -1,8 +1,8 @@
 "use strict";
 const stages = [
-  ["I₁: 1 ≤ nums.len() ≤ 10000", "Start with the array-length fact that supports the index bounds."],
-  ["I₂: 0 ≤ low ≤ len   ·   I₃: −1 ≤ high ≤ len − 1", "Establish the mutually dependent bounds together. Ordering inside their strongly connected component is not rewarded."],
-  ["I₄: left partition   ·   I₅: right partition", "With the prerequisite bounds in place, diagnose the semantic partition error: high ≤ i should become high < i."]
+  ["I₁: 1 ≤ nums.len() ≤ 10000", "The array length constrains the valid index ranges."],
+  ["I₂: 0 ≤ low ≤ len   ·   I₃: −1 ≤ high ≤ len − 1", "Establish both index bounds together; their internal order is not rewarded."],
+  ["I₄: left partition   ·   I₅: right partition", "Use the bounds to expose the partition error: high ≤ i should become high < i."]
 ];
 document.querySelectorAll("[data-step]").forEach(button => {
   button.addEventListener("click", () => {
@@ -23,6 +23,10 @@ document.querySelectorAll("[data-metric]").forEach(button => {
       other.setAttribute("aria-pressed", String(other === button));
     });
     document.querySelectorAll("[data-one]").forEach(cell => cell.textContent = cell.dataset[button.dataset.metric]);
+    document.querySelectorAll("[data-bar-one]").forEach(bar => {
+      bar.style.width = `${bar.dataset[button.dataset.metric === "one" ? "barOne" : "barThree"]}%`;
+    });
+    document.getElementById("comparison-caption").textContent = `Weighted ${button.textContent} (%) across 471 problems`;
     document.getElementById("result-caption").textContent = `${button.textContent} (%) · up to 10 repair iterations per chain`;
   });
 });
@@ -40,7 +44,7 @@ copyButton.addEventListener("click", async () => {
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
-    status.textContent = "Text selected — copy with Ctrl/Cmd+C";
+    status.textContent = "Text selected. Copy with Ctrl/Cmd+C";
   }
 });
 document.querySelectorAll("[data-resource]").forEach(link => {
