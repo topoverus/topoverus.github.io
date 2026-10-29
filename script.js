@@ -30,23 +30,6 @@ document.querySelectorAll("[data-metric]").forEach(button => {
     document.getElementById("result-caption").textContent = `${button.textContent} (%) · up to 10 repair iterations per chain`;
   });
 });
-const copyButton = document.getElementById("copy-citation");
-copyButton.hidden = false;
-copyButton.addEventListener("click", async () => {
-  const citation = document.getElementById("bibtex");
-  const status = document.getElementById("copy-status");
-  try {
-    await navigator.clipboard.writeText(citation.textContent);
-    status.textContent = "Copied";
-  } catch {
-    const range = document.createRange();
-    range.selectNodeContents(citation);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    status.textContent = "Text selected. Copy with Ctrl/Cmd+C";
-  }
-});
 document.querySelectorAll("[data-resource]").forEach(link => {
   const value = window.TOPOVERUS_LINKS?.[link.dataset.resource];
   if (!value) return;

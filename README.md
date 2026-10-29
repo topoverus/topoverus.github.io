@@ -33,13 +33,13 @@ window.TOPOVERUS_LINKS = {
 };
 ```
 
-Empty strings show **Coming soon** without a clickable destination. Valid HTTPS URLs enable both the hero links and the resource section. Update the manuscript BibTeX, resource introduction, and citation note in `index.html` when the paper is released. Replace `assets/social.png` if the title or release status changes.
+Empty strings show **Coming soon** without a clickable destination. Valid HTTPS URLs enable both the hero links and the resource section. Replace the Citation “Coming soon” text in `index.html` with the final BibTeX when the paper is released. Replace `assets/social.png` if the title or release status changes.
 
 ## Content and assets
 
-- `index.html`: TLDR, labeled dependency graph, comparison charts, expandable benchmark table, manuscript citation, and metadata.
+- `index.html`: TLDR, labeled dependency graph, comparison charts, expandable benchmark table, citation placeholder, and metadata.
 - `styles.css`: desktop/mobile layouts, reduced-motion support, and print styles.
-- `script.js`: invariant explorer, synchronized chart and table metric switch, BibTeX copy, and release links.
+- `script.js`: invariant explorer, synchronized chart and table metric switch, and release links.
 - `assets/results.json`: all nine rows of manuscript Table 1, benchmark sizes, and both metrics. The table in `index.html` contains the same data so it remains readable without JavaScript. Update both when results change.
 - `assets/diagnostics.*`: supplied `figures/VeriWorld (12).pdf` and lossless WebP rendering.
 - `assets/sample-scaling.*`, `iteration-scaling.*`, `scaling-legend.*`: the exact figure files used by `figures/tts.tex`, plus lossless WebP renderings. No data or chart geometry was altered.
