@@ -75,9 +75,6 @@ h1{font-size:clamp(34px,4.7vw,58px);line-height:1.12;letter-spacing:-.045em}
 .stage-detail code{color:var(--green);font-size:14px}
 .stage-detail p{font-size:14px;color:var(--muted);margin-top:8px}
 .graph-panel>.note{margin-top:10px}
-.method-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
-.method-notes h3{font-size:18px;margin-bottom:12px}
-.method-notes p{font-size:14px;color:var(--muted);margin:0}
 .wide-figure{margin:34px 0 0}
 .wide-figure img{width:100%;border:1px solid var(--line);border-radius:8px;padding:12px;background:white}
 figcaption{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.7}
@@ -144,7 +141,6 @@ footer .brand{font-size:16px}
 .step{padding:12px;gap:8px}
 .step strong{font-size:12px}
 .step p{display:none}
-.method-notes{gap:22px}
 .result-topline{align-items:flex-start;flex-direction:column}
 .scaling{grid-template-columns:1fr}
 .transfer-layout{grid-template-columns:1fr;gap:20px}
@@ -180,8 +176,6 @@ h1{font-size:35px}
 .step strong{font-size:14px}
 .step p{display:block;font-size:12px}
 .graph-panel{padding:15px}
-.method-notes{grid-template-columns:1fr;gap:23px}
-.method-notes p{font-size:14px}
 .stage-detail code{font-size:12px}
 .wide-figure img{padding:3px;border-radius:3px}
 .plot-pair{grid-template-columns:1fr}
@@ -230,5 +224,23 @@ figure,table{break-inside:avoid}
 .transfer-group:last-of-type{border:0}
 @media(max-width:520px){.tldr{font-size:16px;padding-left:15px}.comparison-chart,.transfer-chart{padding:18px 14px}.chart-row{grid-template-columns:80px 1fr 33px;gap:8px;font-size:12px}.chart-scale{margin-left:88px;margin-right:41px}.bar-track{height:21px}.comparison-chart figcaption,.transfer-chart figcaption{font-size:13px}}
 
-.invariant-key{display:none}
-@media(max-width:520px){.invariant-key{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 22px;font-size:13px}.invariant-key>div{display:flex;gap:8px}.invariant-key dt{font-weight:700;color:var(--green)}.invariant-key dd{margin:0;color:var(--muted)}.invariant .node-label{display:none}}
+/* Keep every invariant definition visible on desktop and mobile. */
+.invariant-key{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;margin:12px 0 24px;font-size:13px}
+.invariant-key>div{display:block}
+.invariant-key dt{font-weight:650;color:var(--green)}
+.invariant-key dd{margin:4px 0 0;color:var(--muted)}
+.invariant-key>div:first-child{grid-column:1/-1}
+.boundary-example{margin:30px 0;border:1px solid var(--line);border-radius:14px;padding:28px}
+.boundary-example figcaption{margin:0 0 24px;font-size:14px;color:var(--ink)}
+.array-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:700px;margin:auto}
+.array-cell{text-align:center;padding:16px 8px;border-radius:8px;border:1px solid var(--line)}
+.array-cell small{display:block;font-size:12px;color:var(--muted)}
+.array-cell strong{display:block;font-size:32px;font-weight:600}
+.array-cell.left{background:#edf3fb}.array-cell.right{background:var(--green-soft)}
+.array-cell.target{border:2px solid var(--ink);background:#fff}
+.partition-label{text-align:center;font-size:13px;color:var(--muted)}
+.left-label{grid-column:1/3}.right-label{grid-column:4/6}.pointer{grid-column:3;line-height:1.3;color:var(--ink)}
+.boundary-comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;font-size:14px}
+.boundary-comparison>div{padding:18px;border-radius:8px}.boundary-comparison p{margin:8px 0 0}
+.boundary-wrong{background:#fff3f1;color:#8a3934}.boundary-correct{background:var(--green-soft);color:var(--green)}
+@media(max-width:520px){.invariant-key{grid-template-columns:1fr;font-size:13px}.invariant .node-label{display:none}.boundary-example{padding:18px 12px}.array-strip{gap:5px}.array-cell{padding:10px 3px}.array-cell strong{font-size:26px}.array-cell small{font-size:10px}.partition-label{font-size:10px}.boundary-comparison{grid-template-columns:1fr;gap:10px}.boundary-comparison>div{padding:14px}}
